@@ -1,0 +1,214 @@
+:root {
+    --primary: #FF4D6D;
+    --primary-hover: #FF758F;
+    --secondary: #FFE5E5;
+    --text: #590D22;
+    --bg-gradient: linear-gradient(135deg, #FFF0F0 0%, #FFE5E5 100%);
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.2);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: var(--shadow);
+    z-index: 10;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Hide scrollbar but keep functionality */
+.card::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photo-container {
+    overflow: hidden;
+    margin-top: -10px;
+}
+
+.photo-container img {
+    object-fit: cover;
+    max-height: 200px;
+    width: 100%;
+    display: block;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    height: 60px;
+}
+
+.btn {
+    padding: 12px 32px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.btn-sm:hover {
+    opacity: 1;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+#no-btn {
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.voucher-grid {
+    margin: 20px 0;
+}
+
+.voucher-option {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+/* Floating Hearts Background */
+.heart {
+    position: absolute;
+    color: var(--primary);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 6s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.2;
+    }
+
+    90% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Success State Animations */
+.success-anim {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}

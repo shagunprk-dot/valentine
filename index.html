@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Background Hearts Container -->
+        <div id="hearts-bg"></div>
+
+        <!-- Stage 1: The Question -->
+        <div id="stage-1" class="card active">
+            <div class="photo-container" style="margin-bottom: 20px;">
+                <img src="assets/photo_ask.jpg" alt="Us"
+                    style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid white;">
+            </div>
+            <span class="success-anim">💝</span>
+            <h1>Will you be my Valentine?</h1>
+            <p>I've been thinking about this for a long time... You make every day brighter! ✨</p>
+            <div class="btn-container">
+                <button id="yes-btn" class="btn btn-primary">Yes! 😍</button>
+                <button id="no-btn" class="btn btn-secondary">No 😢</button>
+            </div>
+        </div>
+
+        <!-- Stage 2: Success! -->
+        <div id="stage-2" class="card hidden">
+            <span class="success-anim">🎉</span>
+            <h1>Yay! Best Day Ever!</h1>
+            <p>I knew you were the one! You've made me the happiest person alive. 💖</p>
+            <div class="btn-container">
+                <button id="back-to-1" class="btn btn-secondary btn-sm">🔙 Back</button>
+                <button id="next-btn-1" class="btn btn-primary">What's next? 😉</button>
+            </div>
+        </div>
+
+        <!-- Stage 3: Valentine's Vouchers -->
+        <div id="stage-3" class="card hidden">
+            <span class="success-anim">🎫</span>
+            <h1>Pick Your Voucher</h1>
+            <p>One special gift, just for you! Which one will you claim today?</p>
+            <div class="voucher-grid" style="display: grid; gap: 12px; margin-bottom: 20px;">
+                <button class="btn btn-secondary voucher-option" data-value="Your favourite food 🍕">Your favourite food
+                    🍕</button>
+                <button class="btn btn-secondary voucher-option" data-value="More food 🍱">More food 🍱</button>
+                <button class="btn btn-secondary voucher-option" data-value="Lots of deep love 💝">Lots of deep love
+                    💝</button>
+            </div>
+            <div class="btn-container" style="margin-top: 10px;">
+                <button id="back-to-2" class="btn btn-secondary btn-sm">🔙 Back</button>
+                <button id="final-btn" class="btn btn-primary hidden">Claim Voucher ✨</button>
+            </div>
+        </div>
+
+        <!-- Stage 4: Final Keepsake -->
+        <div id="stage-4" class="card hidden">
+            <div class="photo-container" style="margin-bottom: 20px;">
+                <img src="assets/photo_keepsake.jpg" alt="Celebrating Us"
+                    style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid white;">
+            </div>
+            <span class="success-anim">🎁</span>
+            <h1>A Special Keepsake</h1>
+            <p id="final-details">Your voucher has been activated!</p>
+            <div id="voucher-display"
+                style="border: 2px dashed var(--primary); padding: 15px; border-radius: 12px; margin: 20px 0; font-weight: 600; color: var(--primary);">
+                <!-- Voucher text here -->
+            </div>
+            <p>See you on February 14th! I can't wait to spend it with you.</p>
+            <div style="margin-top: 10px; font-style: italic; color: var(--primary);">
+                "Locked in forever."
+            </div>
+            <div class="btn-container" style="margin-top: 20px;">
+                <button id="back-to-3" class="btn btn-secondary btn-sm">🔙 Change Voucher</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
